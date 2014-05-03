@@ -1,16 +1,16 @@
-OfficeOperation
+﻿OfficeOperation
 ===============
 
 对offile包括Excel和Word的相关的，版面设置，数据读写，格式设置，背景设置，等一系列的操作
 
 详细：
-////////////////////////////////////////////////
-          /// \fn     virtual int SetVisible(bool visible);
-          /// \brief  设置excel可见与否
-          /// \param  [IN]  bool visible  --true为可见
-          /// \author siler_ya
-          /// \return 成功返回 0
-          ////////////////////////////////////////////////
+           ////////////////////////////////////////////////
+           /// \fn     virtual int SetVisible(bool visible);
+           /// \brief  设置excel可见与否
+           /// \param  [IN]  bool visible  --true为可见
+           /// \author siler_ya
+           /// \return 成功返回 0
+           ////////////////////////////////////////////////
 	   virtual int SetVisible(bool visible);
 
 	   ////////////////////////////////////////////////
