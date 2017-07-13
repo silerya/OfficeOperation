@@ -11,7 +11,15 @@
 *********************************************************************/
 #ifndef ExcelSourse_h__
 #define ExcelSourse_h__
-#include "excel8.h"
+
+//#include "excel8.h"
+class _Application;
+class Workbooks;
+class _Workbook;
+class Worksheets;
+class  _Worksheet;
+class Range;
+
 enum ExcelColor
 {
   black = 1,

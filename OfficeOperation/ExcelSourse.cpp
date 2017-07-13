@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "ExcelSourse.h"
+
+#include "excel8.h"
 #include <comutil.h>
 
 #ifdef _DEBUG
@@ -18,7 +20,7 @@ ExcelSourse::ExcelSourse()
 	sheets = new Worksheets;
     range = new Range;
 	Allrage = new Range;
-	Allrage = new Range;
+	Usedrage = new Range;
 	CoInitialize(NULL);
 	if (!App->CreateDispatch(_T("Excel.Application"),NULL))
 	{
@@ -100,23 +102,32 @@ CString VariantToString(COleVariant *vaData)
 	{
 	case VT_BSTR:
 		return CString (vaData->bstrVal);
+		break;
 	case VT_BSTR | VT_BYREF:
 		return CString(*vaData->pbstrVal);
+		break;
 	case  VT_I4:
 		s.Format(_T("%ld"),vaData->lVal);
+		return s;
+		break;
 	case VT_I4 | VT_BYREF:
 		s.Format(_T("%ld"),*vaData->plVal);
+		return s;
+		break;
 	case  VT_R8:
 		s.Format(_T("%lf"),vaData->dblVal);
+		return s;
+		break;
 	case  VT_DATE:
 		{
 			COleDateTime dt(vaData->date);
 			s = dt.Format(_T("%Y-%m-%d"));
 			return s;
 		}
-
+		break;
 	case  VT_EMPTY:
 		return _T("");
+		break;
 	default:
 		return CString(*vaData->pbstrVal);
 
@@ -324,6 +335,9 @@ if ((row <=0)||(col<=0))
 }
 range->AttachDispatch(GetSlectRange(row,col).pdispVal);
 COleVariant varvalue = range->GetValue();
+
+
+
 *strValue = varvalue;
 return 0;
 }
